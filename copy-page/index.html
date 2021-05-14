@@ -201,6 +201,85 @@
 					"symbolID": "htib8"
 				},
 				{
+					"type": "component",
+					"id": "imaap",
+					"symbolID": null,
+					"value": {
+						"js": "import AlpineJS from &#x27;alpinejs&#x27;\n\n  window.loadCards &#x3D; () &#x3D;&gt; {\n    return {\n      search: \"\",\n      cards: primo.data.employees,\n      get filteredCards() {\n        if (this.search &#x3D;&#x3D;&#x3D; \"\") {\n          return this.cards;\n        }\n        const filteredCards &#x3D; this.cards.filter((item) &#x3D;&gt; {\n          const content &#x3D; &#x60;${item.title} ${item.subtitle}&#x60;\n          return content\n            .toLowerCase()\n            .includes(this.search.toLowerCase());\n        }) \n        const withHighlight &#x3D; filteredCards.map(card &#x3D;&gt; ({\n        \t...card,\n            highlightTitle: card.title.replace(this.search, &#x60;&lt;mark&gt;${this.search}&lt;/mark&gt;&#x60;),\n            highlightSubtitle: card.subtitle.replace(this.search, &#x60;&lt;mark&gt;${this.search}&lt;/mark&gt;&#x60;)\n        }))\n        return withHighlight\n      },\n    };\n  }\n",
+						"css": "",
+						"html": "&lt;div class&#x3D;\"container pt-8 pb-12\" x-data&#x3D;\"loadCards()\"&gt;\n    &lt;label class&#x3D;\"flex items-center block\"&gt;\n        &lt;span class&#x3D;\"sr-only\"&gt;Search&lt;/span&gt;\n        &lt;svg class&#x3D;\"w-6 h-6 text-gray-400 absolute\" fill&#x3D;\"currentColor\" viewBox&#x3D;\"0 0 20 20\" xmlns&#x3D;\"http://www.w3.org/2000/svg\"&gt;&lt;path fill-rule&#x3D;\"evenodd\" d&#x3D;\"M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z\" clip-rule&#x3D;\"evenodd\"&gt;&lt;/path&gt;&lt;/svg&gt;\n        &lt;input\n            x-ref&#x3D;\"searchField\"\n            x-model&#x3D;\"search\"\n            placeholder&#x3D;\"Search...\"\n            type&#x3D;\"search\"\n            class&#x3D;\"w-full text-gray-700 font-bold pl-10 pr-4 py-3 focus:outline-none border-b-4 border-gray-100 focus:border-gray-400 transition-colors duration-300\"\n        &gt;\n        &lt;/input&gt;\n    &lt;/label&gt;\n  &lt;div class&#x3D;\"mt-4 grid md:grid-cols-2 gap-4\" id&#x3D;\"search-container\"&gt;\n    &lt;template x-for&#x3D;\"item in filteredCards\" :key&#x3D;\"item\"&gt;\n      &lt;figure\n        class&#x3D;\"overflow-hidden flex items-center shadow duration-150 ease-in-out transform pr-2\"\n      &gt;\n        &lt;img\n          class&#x3D;\"w-1/3 h-full mr-4 object-cover object-center\"\n          :src&#x3D;\"&#x60;${item.image.url}&#x60;\"\n        /&gt;\n        &lt;div class&#x3D;\"text-sm py-4\"&gt;\n          &lt;div\n            class&#x3D;\"text-xl font-semibold text-gray-900 leading-none mb-1\"\n            x-html&#x3D;\"item.highlightTitle || item.title\"\n          &gt;&lt;/div&gt;\n          &lt;div\n            class&#x3D;\"text-gray-600\"\n            x-html&#x3D;\"item.highlightSubtitle || item.subtitle\"\n          &gt;&lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/figure&gt;\n    &lt;/template&gt;\n    &lt;template x-if&#x3D;\"filteredCards.length &#x3D;&#x3D;&#x3D; 0\"&gt;\n    \t&lt;div x-show.transition.in&#x3D;\"open\" class&#x3D;\"bg-gray-100 text-gray-900 font-semibold p-6\"&gt;No items found&lt;/div&gt;\n    &lt;/template&gt;\n  &lt;/div&gt; \n&lt;/div&gt;\n    \n    ",
+						"fields": [
+							{
+								"id": "tbfwn",
+								"key": "employees",
+								"type": "repeater",
+								"label": "Employees",
+								"value": [
+									{
+										"image": {
+											"alt": "",
+											"url": "https://picsum.photos/300/300",
+											"size": null
+										},
+										"title": "Nibh sed pulvinar",
+										"subtitle": "At lectus urna duis convallis convallis. Nibh sed pulvinar proin gravida. Urna neque viverra justo nec."
+									},
+									{
+										"image": {
+											"alt": "",
+											"url": "https://picsum.photos/300/200",
+											"size": null
+										},
+										"title": "Elementum tempus",
+										"subtitle": "Non diam phasellus vestibulum lorem sed risus ultricies. Urna neque viverra justo nec ultrices dui sapien eget mi."
+									},
+									{
+										"image": {
+											"alt": "",
+											"url": "https://picsum.photos/250/300",
+											"size": null
+										},
+										"title": "Urna neque viverra",
+										"subtitle": "Egestas dui id ornare arcu odio ut sem nulla pharetra. Arcu ac tortor dignissim convallis aenean et."
+									},
+									{
+										"image": {
+											"alt": "GoPro",
+											"url": "https://picsum.photos/300/300",
+											"size": null
+										},
+										"title": "Da vidimo kako to radi",
+										"subtitle": "I da li upopče radi ???"
+									}
+								],
+								"fields": [
+									{
+										"id": "d7xot",
+										"key": "image",
+										"type": "image",
+										"label": "Image",
+										"value": ""
+									},
+									{
+										"id": "6uxzk",
+										"key": "title",
+										"type": "text",
+										"label": "Title",
+										"value": ""
+									},
+									{
+										"id": "ms5nn",
+										"key": "subtitle",
+										"type": "text",
+										"label": "Subtitle",
+										"value": ""
+									}
+								]
+							}
+						]
+					}
+				},
+				{
 					"id": "hyxrd",
 					"type": "component",
 					"value": {
@@ -895,8 +974,8 @@
 						"type": "group",
 						"label": "Link",
 						"value": {
-							"url": "#",
-							"label": "Porttitor Nulla"
+							"label": "Porttitor Nulla",
+							"url": "#"
 						},
 						"fields": [
 							{
@@ -1174,8 +1253,8 @@
 						"type": "group",
 						"label": "Link",
 						"value": {
-							"url": "#",
-							"label": "Go There"
+							"label": "Go There",
+							"url": "#"
 						},
 						"fields": [
 							{
@@ -1482,8 +1561,8 @@
 						"type": "group",
 						"label": "Link",
 						"value": {
-							"url": "#",
-							"label": "Porttitor Nulla"
+							"label": "Porttitor Nulla",
+							"url": "#"
 						},
 						"fields": [
 							{
@@ -1606,8 +1685,8 @@
 						"type": "group",
 						"label": "Link",
 						"value": {
-							"url": "#",
-							"label": "Go There"
+							"label": "Go There",
+							"url": "#"
 						},
 						"fields": [
 							{
